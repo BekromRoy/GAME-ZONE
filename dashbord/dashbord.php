@@ -1,0 +1,264 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['UserName'])) {
+        header('location:../index.html');
+    }
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+	<title><?php echo $_SESSION['UserName']; ?></title>
+	<link rel="icon" type="image/ico" href="../logo/logo.png">
+	<link rel="stylesheet" type="text/css" href="dashbord_style.css">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body onload="hariyaloder()">
+	<!-- welcome Modal -->
+	<div class="modal animate__bounceIn fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="background: rgba(0,0,0,0.6);">
+		<div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+	    <div class="modal-content" style="background: #000016;border: none;">
+	    	<div class="modal-body" style="display: flex;justify-content: center;text-align: center;align-items: center;">
+	    		<span style="color: rgb(0,255,255);"><span style="font-size: 7vw;">Welcome to GAME ZONE,<br><?php echo $_SESSION['UserName']; ?></span><br><span style="font-size: 2vw;">Hope you will enjoy our games, Thank You.</span></span>
+	    	</div>
+	    	<div class="modal-footer" style="border: none;">
+	    	<button type="button" class="btn" data-dismiss="modal" style="background: aqua;border: none;outline: none;color: #000;">Close</button>
+	    	</div>
+	    </div>
+	  </div>
+	</div>
+	<!-- end of welcome modal -->
+	<!-- sound -->
+	<audio id="myAudio" loop autoplay>
+		<source src="sound7.mp3" type="audio/mpeg">
+    </audio>
+	<!-- end of sound -->
+	<!-- pre-loder -->
+	<div class="body-loading" id="loading">
+		<div class="b-loading">
+		<span>Loading...<!--<img src="image/menu.png" width="100">--></span>
+	</div>
+	</div>
+	<!-- end of pre-loder -->
+	<!-- scroll bar -->
+	<div id="progressbar"></div>
+	<div id="scrollpath"></div>
+	<!-- <div id="percent"></div> -->
+	<!-- end of scroll bar -->
+	<!-- 1st section -->
+	<section class="b-section1">
+		<header class="b-header">
+			<a href="dashbord.php" class="b-logo">GAME ZONE</a>
+			<ul class="b-nav">
+				<li class="b-li d-none d-lg-block"><a class="b-menu" href="#"><span>Home</span></a></li>
+				<li class="b-li d-none d-lg-block"><a class="b-menu" href="#aboutus1"><span>About</span></a></li>
+				<li class="b-li d-none d-lg-block"><a class="b-menu" href="#game_zone2"><span>Games</span></a></li>
+				<li class="b-li d-none d-lg-block"><a class="b-menu" style="margin: 0;" href="#contactus1"><span>Contact Us</span></a></li>
+				<li class="d-block d-lg-none"><img src="image/menu.png" class="b-menu-img" onclick="openNav()"></li>
+			</ul>
+			<div id="myNav" class="overlay d-block d-lg-none">
+				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				<div class="overlay-content">
+					<a href="#"><span>Home</span></a>
+					<a href="#aboutus2"><span>About</span></a>
+					<a href="#game_zone3"><span>Games</span></a>
+					<a href="#contactus2"><span>Contact Us</span></a>
+				</div>
+			</div>
+		</header>
+		<div class="b-content-out">
+			<div class="b-content-in">
+				<h2><span class="span1">Game</span><br><span class="span2">Z<img src="image/name-img.png" class="b-o-img">ne</span></h2>
+				<p>Welcome to game zone,<br>Here you will get different types of games and you can play it in your mobile and in your computer. Hope you will like these games which we have build our self. To play games you have to sign in or, create your account first.</p>
+				<a href="../logout/logout.php">Logout</a>
+			</div>
+		</div>
+		<ul class="b-social">
+			<li><a href="https://www.facebook.com/gamezone"><i class="fab fa-facebook-f"></i></a></li>
+			<li><a href="https://twitter.com/gamezone"><i class="fab fa-twitter"></i></a></li>
+			<li><a href="https://www.instagram.com/gamezone"><i class="fab fa-instagram"></i></a></li>
+		</ul>
+	</section>
+	<!-- end of 1st section -->
+	<!-- 8th section --><span id="aboutus2"></span><span id="aboutus3"></span>
+	<section class="b-section8" id="aboutus1">
+	<div class="swiper-container">
+		<p class="b-wrapper-text4">Group Members</p>
+		<p class="b-wrapper-text5">We have made mini games by HTML, CSS & JS. It is our 1st try ever. Each one of us has made one game, and the website has been made by both of us and we updated it every times.</p>
+		<div class="swiper-wrapper">
+			<div class="swiper-slide" style="overflow: hidden;height: 380px;width: 380px;display: flex;justify-content: center;align-items: center;text-align: center;"><p class="b-wrapper-text6">Anurag Kumar Singh</p><img src="image/anurag.jpg" class="b-slide-img2"></div>
+			<div class="swiper-slide" style="overflow: hidden;height: 380px;width: 380px;display: flex;justify-content: center;align-items: center;text-align: center;"><p class="b-wrapper-text6">Amritanshu Kumar <br>Singh</p><img src="image/mota.jpg" class="b-slide-img2"></div>
+			<div class="swiper-slide" style="overflow: hidden;height: 380px;width: 380px;display: flex;justify-content: center;align-items: center;text-align: center;"><p class="b-wrapper-text6">Bekrom Roy</p><img src="image/bekrom.jpg" class="b-slide-img2"></div>
+			<div class="swiper-slide" style="overflow: hidden;height: 380px;width: 380px;display: flex;justify-content: center;align-items: center;text-align: center;"><p class="b-wrapper-text6">Harikesh Kumar Kori</p><img src="image/hariya.jpg" class="b-slide-img2"></div>
+			<div class="swiper-slide" style="overflow: hidden;height: 380px;width: 380px;display: flex;justify-content: center;align-items: center;text-align: center;"><p class="b-wrapper-text6">Malik Kumar</p><img src="image/malik.jpg" class="b-slide-img2"></div>
+			<div class="swiper-slide" style="overflow: hidden;height: 380px;width: 380px;display: flex;justify-content: center;align-items: center;text-align: center;"><p class="b-wrapper-text6">Naveen Ray</p><img src="image/naveen.jpg" class="b-slide-img2"></div> 
+			<div class="swiper-slide" style="overflow: hidden;height: 380px;width: 380px;display: flex;justify-content: center;align-items: center;text-align: center;"><p class="b-wrapper-text6">Sahil Gaurav</p><img src="image/sahil.jpg" class="b-slide-img2"></div>
+			<div class="swiper-slide" style="overflow: hidden;height: 380px;width: 380px;display: flex;justify-content: center;align-items: center;text-align: center;"><p class="b-wrapper-text6">Saurabh Jha</p><img src="image/saurabh.jpg" class="b-slide-img2"></div>
+		</div>
+		<div class="swiper-pagination"></div>
+	</div>
+	</section>
+	<!-- end of 8th section -->
+	<!-- 2nd section --><span id="game_zone2"></span><span id="game_zone3"></span><span id="game_zone4"></span>
+	<section class="b-section2" id="game_zone1">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 b-game-body">
+					<img src="image/game.png" class="b-game-img">
+					<p class="b-game-text">Here you will get different types of games and you can play it in your mobile and in your computer. Hope you will like these games which we have build our self. <a href="#game">Let's go.</a></p>
+				</div>
+				<div class="col-md-6 b-music-body">
+					<img src="image/music.png" class="b-music-img">
+					<p class="b-music-text">Here you will get some music instruments and you can play it in your mobile and in your computer. Hope you will like these musics which we have build our self. <a href="#music">Let's go.</a></p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end of 2nd section -->
+	<!-- 3rd section -->
+	<section class="b-section3" id="game">
+	<div class="swiper-container">
+		<p class="b-wrapper-text1">Our Games</p>
+		<p class="b-wrapper-text2">We have made mini games by HTML, CSS & JS. It is our 1st try ever, hope you will enjoy it. To play games you have to sign in or, create your account first.</p>
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<img src="image/game1.jpg" class="b-slide-img">
+				<h1 class="b-slide-text">Ludo_Game</h1>
+				<a href="../game/Ludo_Game/ludo.php" target="_blank"><button>Let's Go</button></a>
+			</div>
+			<div class="swiper-slide">
+				<img src="image/game2.jpg" class="b-slide-img">
+				<h1 class="b-slide-text">Jump_Game</h1>
+				<a href="../game/Jump/jump.php" target="_blank"><button>Let's Go</button></a>
+			</div>
+			<div class="swiper-slide">
+				<img src="image/game4.jpg" class="b-slide-img">
+				<h1 class="b-slide-text">Color_Game</h1>
+				<a href="../game/color_game/colorGame.php" target="_blank"><button>Let's Go</button></a>
+			</div>
+			<div class="swiper-slide">
+				<img src="image/game5.jpg" class="b-slide-img">
+				<h1 class="b-slide-text">Tic_Tac_Toe_Game</h1>
+				<a href="../game/tictactoe/tic_tac_toe.php" target="_blank"><button>Let's Go</button></a>
+			</div>
+			<div class="swiper-slide">
+				<img src="image/game6.jpg" class="b-slide-img">
+				<h1 class="b-slide-text">Car_Race_Game</h1>
+				<a href="../game/Car_Race/car.php" target="_blank"><button>Let's Go</button></a>
+			</div>
+		</div>
+		<div class="swiper-pagination"></div>
+	</div>
+	</section>
+	<!-- end of 3rd section -->
+	<!-- 4th section --><span id="music-in2"><span id="music-in1"></span></span>
+	<section class="b-section4" id="music">
+		<p class="b-wrapper-text1">Our Musics</p>
+		<p class="b-wrapper-text2">We have made some musical instrument by HTML, CSS & JS. It is our 1st try ever, hope you will enjoy it. To play music you have to sign in or, create your account first.</p>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6" style="align-items: center;justify-content: center;display: flex;margin-bottom: 50px;">
+					<div class="b-music-box1">
+						<div class="b-music-content-text">
+							<h2>Piano</h2>
+							<a href="../music/Piano/piano.php" target="_blank" class="b-music-btn">Let's Go</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6" style="align-items: center;justify-content: center;display: flex;margin-bottom: 50px;">
+					<div class="b-music-box2">
+						<div class="b-music-content-text">
+							<h2>Drumkit</h2>
+							<a href="../music/drums/Drumkit.php" target="_blank" class="b-music-btn">Let's Go</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end of 4th section -->
+	<!-- 5th section --><span id="contactus2"></span><span id="contactus3"></span>
+	<section class="b-section5" id="contactus1">
+    <!-- contact us form -->
+        <div class="contact-us">
+            <div class="title">
+                <h1>CONTACT US</h1>
+            </div>
+            <div class="b-form">
+                <form action="contact.php" method="POST">
+                    <div class="b-form-items">
+                        <input type="text"name="contactname" class="b-input" placeholder="USERNAME" title="Enter your name">
+                    </div>
+                    <div class="b-form-items">
+                        <input type="text"name="contactemail" class="b-input" placeholder="EMAIL" title="Enter your email">
+                    </div>
+                    <div class="b-form-items">
+                        <textarea class="b-input-message" name="contactmassage" cols="30" rows="10" placeholder="MESSAGE...." title="Typr your message"></textarea>
+                    </div>
+                    <!-- add white swipe on button -->
+                    <input type="submit" name="contactsend" class="b-btn" value="SUBMIT">
+                </form>
+            </div>
+        </div>
+    <!-- end of contact us form -->
+	</section>
+	<!-- end of 5th section -->
+	<!-- 6th section -->
+	<section class="b-section6">
+		<div class="b-section6-logo">
+			<div class="b-svg-icon b-svg-shape">
+				<svg class="b-logo-svg" viewBox="0 0 1036 133" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<mask id="path-1-outside-1" maskUnits="userSpaceOnUse" x="0.73999" y="0.0999756" width="1035" height="133" fill="black">
+					<rect fill="white" x="0.73999" y="0.0999756" width="1035" height="133"/>
+					<path d="M103.9 39.9C100.42 32.58 95.38 26.94 88.78 22.98C82.18 18.9 74.5 16.86 65.74 16.86C56.98 16.86 49.06 18.9 41.98 22.98C35.02 26.94 29.5 32.7 25.42 40.26C21.46 47.7 19.48 56.34 19.48 66.18C19.48 76.02 21.46 84.66 25.42 92.1C29.5 99.54 35.02 105.3 41.98 109.38C49.06 113.34 56.98 115.32 65.74 115.32C77.98 115.32 88.06 111.66 95.98 104.34C103.9 97.02 108.52 87.12 109.84 74.64H59.8V61.32H127.3V73.92C126.34 84.24 123.1 93.72 117.58 102.36C112.06 110.88 104.8 117.66 95.8 122.7C86.8 127.62 76.78 130.08 65.74 130.08C54.1 130.08 43.48 127.38 33.88 121.98C24.28 116.46 16.66 108.84 11.02 99.12C5.49999 89.4 2.73999 78.42 2.73999 66.18C2.73999 53.94 5.49999 42.96 11.02 33.24C16.66 23.4 24.28 15.78 33.88 10.38C43.48 4.85997 54.1 2.09998 65.74 2.09998C79.06 2.09998 90.82 5.39998 101.02 12C111.34 18.6 118.84 27.9 123.52 39.9H103.9Z"/>
+					<path d="M142.838 79.32C142.838 69.24 144.878 60.42 148.958 52.86C153.038 45.18 158.618 39.24 165.698 35.04C172.898 30.84 180.878 28.74 189.638 28.74C198.278 28.74 205.778 30.6 212.138 34.32C218.498 38.04 223.238 42.72 226.358 48.36V30.36H242.918V129H226.358V110.64C223.118 116.4 218.258 121.2 211.778 125.04C205.418 128.76 197.978 130.62 189.458 130.62C180.698 130.62 172.778 128.46 165.698 124.14C158.618 119.82 153.038 113.76 148.958 105.96C144.878 98.16 142.838 89.28 142.838 79.32ZM226.358 79.5C226.358 72.06 224.858 65.58 221.858 60.06C218.858 54.54 214.778 50.34 209.618 47.46C204.578 44.46 198.998 42.96 192.878 42.96C186.758 42.96 181.178 44.4 176.138 47.28C171.098 50.16 167.078 54.36 164.078 59.88C161.078 65.4 159.578 71.88 159.578 79.32C159.578 86.88 161.078 93.48 164.078 99.12C167.078 104.64 171.098 108.9 176.138 111.9C181.178 114.78 186.758 116.22 192.878 116.22C198.998 116.22 204.578 114.78 209.618 111.9C214.778 108.9 218.858 104.64 221.858 99.12C224.858 93.48 226.358 86.94 226.358 79.5Z"/>
+					<path d="M389.218 28.56C396.898 28.56 403.738 30.18 409.738 33.42C415.738 36.54 420.478 41.28 423.958 47.64C427.438 54 429.178 61.74 429.178 70.86V129H412.978V73.2C412.978 63.36 410.518 55.86 405.598 50.7C400.798 45.42 394.258 42.78 385.978 42.78C377.458 42.78 370.678 45.54 365.638 51.06C360.598 56.46 358.078 64.32 358.078 74.64V129H341.878V73.2C341.878 63.36 339.418 55.86 334.498 50.7C329.698 45.42 323.158 42.78 314.878 42.78C306.358 42.78 299.578 45.54 294.538 51.06C289.498 56.46 286.978 64.32 286.978 74.64V129H270.598V30.36H286.978V44.58C290.218 39.42 294.538 35.46 299.938 32.7C305.458 29.94 311.518 28.56 318.118 28.56C326.398 28.56 333.718 30.42 340.078 34.14C346.438 37.86 351.178 43.32 354.298 50.52C357.058 43.56 361.618 38.16 367.978 34.32C374.338 30.48 381.418 28.56 389.218 28.56Z"/>
+					<path d="M546.047 75.9C546.047 79.02 545.868 82.32 545.508 85.8H466.668C467.268 95.52 470.568 103.14 476.568 108.66C482.688 114.06 490.067 116.76 498.707 116.76C505.787 116.76 511.668 115.14 516.348 111.9C521.148 108.54 524.507 104.1 526.427 98.58H544.068C541.428 108.06 536.147 115.8 528.227 121.8C520.307 127.68 510.467 130.62 498.707 130.62C489.347 130.62 480.948 128.52 473.508 124.32C466.188 120.12 460.428 114.18 456.228 106.5C452.028 98.7 449.927 89.7 449.927 79.5C449.927 69.3 451.968 60.36 456.048 52.68C460.128 45 465.827 39.12 473.147 35.04C480.587 30.84 489.107 28.74 498.707 28.74C508.067 28.74 516.347 30.78 523.547 34.86C530.747 38.94 536.267 44.58 540.107 51.78C544.067 58.86 546.047 66.9 546.047 75.9ZM529.128 72.48C529.128 66.24 527.747 60.9 524.987 56.46C522.227 51.9 518.448 48.48 513.648 46.2C508.968 43.8 503.747 42.6 497.987 42.6C489.707 42.6 482.627 45.24 476.747 50.52C470.987 55.8 467.688 63.12 466.848 72.48H529.128Z"/>
+					<path d="M629.517 114.78H690.717V129H610.077V116.04L670.917 17.76H610.797V3.53998H690.357V16.5L629.517 114.78Z"/>
+					<path d="M756.06 130.62C746.82 130.62 738.42 128.52 730.86 124.32C723.42 120.12 717.54 114.18 713.22 106.5C709.02 98.7 706.92 89.7 706.92 79.5C706.92 69.42 709.08 60.54 713.4 52.86C717.84 45.06 723.84 39.12 731.4 35.04C738.96 30.84 747.42 28.74 756.78 28.74C766.14 28.74 774.6 30.84 782.16 35.04C789.72 39.12 795.66 45 799.98 52.68C804.42 60.36 806.64 69.3 806.64 79.5C806.64 89.7 804.36 98.7 799.8 106.5C795.36 114.18 789.3 120.12 781.62 124.32C773.94 128.52 765.42 130.62 756.06 130.62ZM756.06 116.22C761.94 116.22 767.46 114.84 772.62 112.08C777.78 109.32 781.92 105.18 785.04 99.66C788.28 94.14 789.9 87.42 789.9 79.5C789.9 71.58 788.34 64.86 785.22 59.34C782.1 53.82 778.02 49.74 772.98 47.1C767.94 44.34 762.48 42.96 756.6 42.96C750.6 42.96 745.08 44.34 740.04 47.1C735.12 49.74 731.16 53.82 728.16 59.34C725.16 64.86 723.66 71.58 723.66 79.5C723.66 87.54 725.1 94.32 727.98 99.84C730.98 105.36 734.94 109.5 739.86 112.26C744.78 114.9 750.18 116.22 756.06 116.22Z"/>
+					<path d="M876.236 28.56C888.236 28.56 897.956 32.22 905.396 39.54C912.836 46.74 916.556 57.18 916.556 70.86V129H900.356V73.2C900.356 63.36 897.896 55.86 892.976 50.7C888.056 45.42 881.336 42.78 872.816 42.78C864.176 42.78 857.276 45.48 852.116 50.88C847.076 56.28 844.556 64.14 844.556 74.46V129H828.176V30.36H844.556V44.4C847.796 39.36 852.176 35.46 857.696 32.7C863.336 29.94 869.516 28.56 876.236 28.56Z"/>
+					<path d="M1033.31 75.9C1033.31 79.02 1033.13 82.32 1032.77 85.8H953.933C954.533 95.52 957.833 103.14 963.833 108.66C969.953 114.06 977.333 116.76 985.973 116.76C993.053 116.76 998.933 115.14 1003.61 111.9C1008.41 108.54 1011.77 104.1 1013.69 98.58H1031.33C1028.69 108.06 1023.41 115.8 1015.49 121.8C1007.57 127.68 997.733 130.62 985.973 130.62C976.613 130.62 968.213 128.52 960.773 124.32C953.453 120.12 947.693 114.18 943.493 106.5C939.293 98.7 937.193 89.7 937.193 79.5C937.193 69.3 939.233 60.36 943.313 52.68C947.393 45 953.093 39.12 960.413 35.04C967.853 30.84 976.373 28.74 985.973 28.74C995.333 28.74 1003.61 30.78 1010.81 34.86C1018.01 38.94 1023.53 44.58 1027.37 51.78C1031.33 58.86 1033.31 66.9 1033.31 75.9ZM1016.39 72.48C1016.39 66.24 1015.01 60.9 1012.25 56.46C1009.49 51.9 1005.71 48.48 1000.91 46.2C996.233 43.8 991.013 42.6 985.253 42.6C976.973 42.6 969.893 45.24 964.013 50.52C958.253 55.8 954.953 63.12 954.113 72.48H1016.39Z"/>
+					</mask>
+					<path d="M103.9 39.9C100.42 32.58 95.38 26.94 88.78 22.98C82.18 18.9 74.5 16.86 65.74 16.86C56.98 16.86 49.06 18.9 41.98 22.98C35.02 26.94 29.5 32.7 25.42 40.26C21.46 47.7 19.48 56.34 19.48 66.18C19.48 76.02 21.46 84.66 25.42 92.1C29.5 99.54 35.02 105.3 41.98 109.38C49.06 113.34 56.98 115.32 65.74 115.32C77.98 115.32 88.06 111.66 95.98 104.34C103.9 97.02 108.52 87.12 109.84 74.64H59.8V61.32H127.3V73.92C126.34 84.24 123.1 93.72 117.58 102.36C112.06 110.88 104.8 117.66 95.8 122.7C86.8 127.62 76.78 130.08 65.74 130.08C54.1 130.08 43.48 127.38 33.88 121.98C24.28 116.46 16.66 108.84 11.02 99.12C5.49999 89.4 2.73999 78.42 2.73999 66.18C2.73999 53.94 5.49999 42.96 11.02 33.24C16.66 23.4 24.28 15.78 33.88 10.38C43.48 4.85997 54.1 2.09998 65.74 2.09998C79.06 2.09998 90.82 5.39998 101.02 12C111.34 18.6 118.84 27.9 123.52 39.9H103.9Z" stroke="white" stroke-width="4" mask="url(#path-1-outside-1)"/>
+					<path d="M142.838 79.32C142.838 69.24 144.878 60.42 148.958 52.86C153.038 45.18 158.618 39.24 165.698 35.04C172.898 30.84 180.878 28.74 189.638 28.74C198.278 28.74 205.778 30.6 212.138 34.32C218.498 38.04 223.238 42.72 226.358 48.36V30.36H242.918V129H226.358V110.64C223.118 116.4 218.258 121.2 211.778 125.04C205.418 128.76 197.978 130.62 189.458 130.62C180.698 130.62 172.778 128.46 165.698 124.14C158.618 119.82 153.038 113.76 148.958 105.96C144.878 98.16 142.838 89.28 142.838 79.32ZM226.358 79.5C226.358 72.06 224.858 65.58 221.858 60.06C218.858 54.54 214.778 50.34 209.618 47.46C204.578 44.46 198.998 42.96 192.878 42.96C186.758 42.96 181.178 44.4 176.138 47.28C171.098 50.16 167.078 54.36 164.078 59.88C161.078 65.4 159.578 71.88 159.578 79.32C159.578 86.88 161.078 93.48 164.078 99.12C167.078 104.64 171.098 108.9 176.138 111.9C181.178 114.78 186.758 116.22 192.878 116.22C198.998 116.22 204.578 114.78 209.618 111.9C214.778 108.9 218.858 104.64 221.858 99.12C224.858 93.48 226.358 86.94 226.358 79.5Z" stroke="white" stroke-width="4" mask="url(#path-1-outside-1)"/>
+					<path d="M389.218 28.56C396.898 28.56 403.738 30.18 409.738 33.42C415.738 36.54 420.478 41.28 423.958 47.64C427.438 54 429.178 61.74 429.178 70.86V129H412.978V73.2C412.978 63.36 410.518 55.86 405.598 50.7C400.798 45.42 394.258 42.78 385.978 42.78C377.458 42.78 370.678 45.54 365.638 51.06C360.598 56.46 358.078 64.32 358.078 74.64V129H341.878V73.2C341.878 63.36 339.418 55.86 334.498 50.7C329.698 45.42 323.158 42.78 314.878 42.78C306.358 42.78 299.578 45.54 294.538 51.06C289.498 56.46 286.978 64.32 286.978 74.64V129H270.598V30.36H286.978V44.58C290.218 39.42 294.538 35.46 299.938 32.7C305.458 29.94 311.518 28.56 318.118 28.56C326.398 28.56 333.718 30.42 340.078 34.14C346.438 37.86 351.178 43.32 354.298 50.52C357.058 43.56 361.618 38.16 367.978 34.32C374.338 30.48 381.418 28.56 389.218 28.56Z" stroke="white" stroke-width="4" mask="url(#path-1-outside-1)"/>
+					<path d="M546.047 75.9C546.047 79.02 545.868 82.32 545.508 85.8H466.668C467.268 95.52 470.568 103.14 476.568 108.66C482.688 114.06 490.067 116.76 498.707 116.76C505.787 116.76 511.668 115.14 516.348 111.9C521.148 108.54 524.507 104.1 526.427 98.58H544.068C541.428 108.06 536.147 115.8 528.227 121.8C520.307 127.68 510.467 130.62 498.707 130.62C489.347 130.62 480.948 128.52 473.508 124.32C466.188 120.12 460.428 114.18 456.228 106.5C452.028 98.7 449.927 89.7 449.927 79.5C449.927 69.3 451.968 60.36 456.048 52.68C460.128 45 465.827 39.12 473.147 35.04C480.587 30.84 489.107 28.74 498.707 28.74C508.067 28.74 516.347 30.78 523.547 34.86C530.747 38.94 536.267 44.58 540.107 51.78C544.067 58.86 546.047 66.9 546.047 75.9ZM529.128 72.48C529.128 66.24 527.747 60.9 524.987 56.46C522.227 51.9 518.448 48.48 513.648 46.2C508.968 43.8 503.747 42.6 497.987 42.6C489.707 42.6 482.627 45.24 476.747 50.52C470.987 55.8 467.688 63.12 466.848 72.48H529.128Z" stroke="white" stroke-width="4" mask="url(#path-1-outside-1)"/>
+					<path d="M629.517 114.78H690.717V129H610.077V116.04L670.917 17.76H610.797V3.53998H690.357V16.5L629.517 114.78Z" stroke="white" stroke-width="4" mask="url(#path-1-outside-1)"/>
+					<path d="M756.06 130.62C746.82 130.62 738.42 128.52 730.86 124.32C723.42 120.12 717.54 114.18 713.22 106.5C709.02 98.7 706.92 89.7 706.92 79.5C706.92 69.42 709.08 60.54 713.4 52.86C717.84 45.06 723.84 39.12 731.4 35.04C738.96 30.84 747.42 28.74 756.78 28.74C766.14 28.74 774.6 30.84 782.16 35.04C789.72 39.12 795.66 45 799.98 52.68C804.42 60.36 806.64 69.3 806.64 79.5C806.64 89.7 804.36 98.7 799.8 106.5C795.36 114.18 789.3 120.12 781.62 124.32C773.94 128.52 765.42 130.62 756.06 130.62ZM756.06 116.22C761.94 116.22 767.46 114.84 772.62 112.08C777.78 109.32 781.92 105.18 785.04 99.66C788.28 94.14 789.9 87.42 789.9 79.5C789.9 71.58 788.34 64.86 785.22 59.34C782.1 53.82 778.02 49.74 772.98 47.1C767.94 44.34 762.48 42.96 756.6 42.96C750.6 42.96 745.08 44.34 740.04 47.1C735.12 49.74 731.16 53.82 728.16 59.34C725.16 64.86 723.66 71.58 723.66 79.5C723.66 87.54 725.1 94.32 727.98 99.84C730.98 105.36 734.94 109.5 739.86 112.26C744.78 114.9 750.18 116.22 756.06 116.22Z" stroke="white" stroke-width="4" mask="url(#path-1-outside-1)"/>
+					<path d="M876.236 28.56C888.236 28.56 897.956 32.22 905.396 39.54C912.836 46.74 916.556 57.18 916.556 70.86V129H900.356V73.2C900.356 63.36 897.896 55.86 892.976 50.7C888.056 45.42 881.336 42.78 872.816 42.78C864.176 42.78 857.276 45.48 852.116 50.88C847.076 56.28 844.556 64.14 844.556 74.46V129H828.176V30.36H844.556V44.4C847.796 39.36 852.176 35.46 857.696 32.7C863.336 29.94 869.516 28.56 876.236 28.56Z" stroke="white" stroke-width="4" mask="url(#path-1-outside-1)"/>
+					<path d="M1033.31 75.9C1033.31 79.02 1033.13 82.32 1032.77 85.8H953.933C954.533 95.52 957.833 103.14 963.833 108.66C969.953 114.06 977.333 116.76 985.973 116.76C993.053 116.76 998.933 115.14 1003.61 111.9C1008.41 108.54 1011.77 104.1 1013.69 98.58H1031.33C1028.69 108.06 1023.41 115.8 1015.49 121.8C1007.57 127.68 997.733 130.62 985.973 130.62C976.613 130.62 968.213 128.52 960.773 124.32C953.453 120.12 947.693 114.18 943.493 106.5C939.293 98.7 937.193 89.7 937.193 79.5C937.193 69.3 939.233 60.36 943.313 52.68C947.393 45 953.093 39.12 960.413 35.04C967.853 30.84 976.373 28.74 985.973 28.74C995.333 28.74 1003.61 30.78 1010.81 34.86C1018.01 38.94 1023.53 44.58 1027.37 51.78C1031.33 58.86 1033.31 66.9 1033.31 75.9ZM1016.39 72.48C1016.39 66.24 1015.01 60.9 1012.25 56.46C1009.49 51.9 1005.71 48.48 1000.91 46.2C996.233 43.8 991.013 42.6 985.253 42.6C976.973 42.6 969.893 45.24 964.013 50.52C958.253 55.8 954.953 63.12 954.113 72.48H1016.39Z" stroke="white" stroke-width="4" mask="url(#path-1-outside-1)"/>
+				</svg>
+			</div>
+		</div>
+		<div class="b-section6-menu">
+			<a href="#aboutus3"><span>About</span></a>
+			<a href="#game_zone4"><span>Games</span></a>
+			<a href="#contactus3"><span>Contact Us</span></a>
+		</div>
+		<ul class="b-social-footer">
+			<li><a href="https://www.facebook.com/gamezone"><i class="fab fa-facebook-f"></i></a></li>
+			<li><a href="https://twitter.com/gamezone"><i class="fab fa-twitter"></i></a></li>
+			<li><a href="https://www.instagram.com/gamezone"><i class="fab fa-instagram"></i></a></li>
+		</ul>
+	</section>
+	<!-- and of 6th section -->
+	<!-- 7th section -->
+	<section class="b-section7">
+      	<p>Copyright &copy; 2020 All Right Reserved. Designed By &nbsp;Group - E .</p>
+    </section>
+	<!-- end of 7th section -->
+	<!-- Script starts here -->
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	<!--bootstrap js cdn-->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<!-- index starts here -->
+	<script type="text/javascript" src="dashbord_js.js"></script>
+</body>
+</html>

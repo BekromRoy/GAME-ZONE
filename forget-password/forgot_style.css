@@ -1,0 +1,134 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body 
+{
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(login_bg.jpg);
+  background-size: cover;
+  background-position: center;
+}
+p
+{
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.form-container 
+{
+  height: 100vh;
+  width: 100%;
+}
+.form-container .form-wrap 
+{
+  background: linear-gradient(to right, rgb(255, 255, 255, 0.05)50%, rgb(255, 255, 255, 0.10)50%);
+  width: 380px;
+  padding: 15px 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+}
+@keyframes animate
+{
+  0%{ filter: hue-rotate(0deg); }
+  100%{ filter: hue-rotate(360deg); }
+}
+.form-container .form-wrap h2 
+{
+  font-size: 28px;
+  text-align: center;
+  margin: 0px 0px 20px;
+  color: #9bd2ff;
+  animation: animate 10s linear infinite;
+}
+.form-container .form-wrap .form-box 
+{
+  margin: 0px 0px 15px;
+}
+.form-container .form-wrap .form-box input[type="email"]
+{
+  padding: 5px 8px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #fff;
+  font-size: 1.3em;
+  width: 300px;
+  background: transparent;
+  margin: 50px 0 0px 0;
+  color: #a5f0ff;
+}
+.form-container .form-wrap .form-box input[type="email"]::placeholder
+{
+  color: #bbb;
+}
+.form-container .form-wrap .form-box input[type="password"]
+{
+  padding: 5px 8px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #fff;
+  font-size: 1.3em;
+  width: 300px;
+  background: transparent;
+  margin: 50px 0 10px 0;
+  color: #a5f0ff;
+}
+.form-container .form-wrap .form-box input[type="password"]::placeholder
+{
+  color: #bbb;
+}
+.form-container .form-wrap .form-submit 
+{
+  display: flex;
+  justify-content: center;
+}
+.form-container .form-wrap .form-submit input[type="submit"] 
+{
+  padding: 4px 10px;
+  border: none;
+  border-radius: 2px;
+  background: #353535;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+.form-container .form-wrap .form-box input:focus
+{
+  transition: 0.5s;
+  border-color: #00bbff;
+}
+.submit-btn
+{
+  width: 160px;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  background: radial-gradient(circle,  #2715ca, #22dab2);
+  border: 0;
+  outline: none;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  font-size: 15px;
+}
+.submit-btn::before
+{
+  content: "";
+  width: 200px;
+  height: 20px;
+  background-color: #fff;
+  position: absolute;
+  transform: translateX(-110%) rotate(45deg);
+  transition: 0.4s;
+}
+.submit-btn:hover::before
+{
+  transform: translateX(100%) rotate(45deg);
+}

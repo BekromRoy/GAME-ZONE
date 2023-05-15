@@ -1,0 +1,323 @@
+*
+{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+.pulse1
+{
+  position: fixed;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: #000;
+  overflow: hidden;
+  animation: loder 1.8s linear forwards;
+}
+@keyframes loder
+{
+  90%
+  {
+    height: 100vh;
+    opacity: 1;
+  }
+  99.99999999999999%
+  {
+    height: 100vh;
+    opacity: 0;
+  }
+  100%
+  {
+    height: 0vh;
+  }
+}
+.pulse2
+{
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: #31989e;
+  border-radius: 50%;
+}
+.pulse2 span
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #31989e;
+  border-radius: 50%;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  animation: game 2.5s linear infinite;
+  animation-delay: calc(-0.5s * var(--i));
+}
+@keyframes game
+{
+  0%
+  {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  90%
+  {
+    transform: scale(3);
+  }
+  100%
+  {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+.game
+{
+  position: relative;
+  top: 50px;
+  text-align: center;
+}
+.container
+{
+  font-family: 'Roboto';
+  width: 600px; 
+  margin: 30px auto 0; 
+  display: block; 
+  background: transparent;
+}
+.group
+{ 
+  position: relative; 
+  margin-bottom: 45px; 
+}
+.b-input
+{
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 280px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid white;
+  color: #a5f0ff;
+}
+.b-input:focus
+{
+  outline: none;
+}
+label
+{
+  color: white; 
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all; 
+  -moz-transition: 0.2s ease all; 
+  -webkit-transition: 0.2s ease all;
+}
+.b-input:focus ~ label, .b-input:valid ~ label
+{
+  top: -20px;
+  font-size: 14px;
+  color: #00bbff;
+}
+.bar
+{
+  position: 0;
+  display: block;
+  width: 180px;
+}
+.bar:before, .bar:after
+{
+  content: '';
+  height: 3px; 
+  width: 0;
+  bottom: 0px; 
+  position: absolute;
+  background: #00bbff; 
+  transition: 0.2s ease all; 
+  -moz-transition: 0.2s ease all; 
+  -webkit-transition: 0.2s ease all;
+}
+.bar:before
+{
+  left: 50%;
+}
+.bar:after
+{
+  right: 50%; 
+}
+.b-input:focus ~ .bar:before, .b-input:focus ~ .bar:after
+{
+  width: 50%;
+}
+.highlight
+{
+  position: absolute;
+  height: 60%; 
+  width: 100px; 
+  top: 25%; 
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+.b-input:focus ~ .highlight {
+  -webkit-animation: inputHighlighter 0s ease;
+  -moz-animation: inputHighlighter 0s ease;
+  animation: inputHighlighter 0s ease;
+}
+@-webkit-keyframes inputHighlighter {
+	from { background: #00bbff; }
+  to 	{ width: 0; background: transparent; }
+}
+@-moz-keyframes inputHighlighter {
+	from { background: #00bbff; }
+  to 	{ width: 0; background: transparent; }
+}
+@keyframes inputHighlighter {
+	from { background: #00bbff; }
+  to 	{ width: 0; background: transparent; }
+}
+
+.hero
+{
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(login_bg.jpg);
+  background-position: center;
+  background-size: cover;
+  position: absolute; 
+}
+.form-box
+{
+  width: 380px;
+  height: 580px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #ffffff15;
+  padding: 5px;
+  overflow: hidden;
+}
+.button-box
+{
+  width: 220px;
+  margin: 35px auto;
+  margin-bottom: 0;
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 0 38px 4px #ffffff1f;
+}
+.toggle-btn
+{
+  padding: 10px 20px 10px 40px;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  outline: none;
+  position: relative;
+  color: white;
+}
+#btn
+{
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 110px;
+  height: 100%;
+  background: linear-gradient(to right,  #2715ca, #22dab2);
+  border-radius: 30px;
+  transition: .5s;   
+}
+.input-group
+{
+  position: absolute;
+  transition: .5s;
+  overflow: hidden;
+}
+a:link
+{
+  text-decoration: none;
+  opacity: 50%;
+}
+.submit-btn
+{
+  width: 210px;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  background: radial-gradient(circle,  #2715ca, #22dab2);
+  border: 0;
+  outline: none;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+}
+.submit-btn::before
+{
+  content: "";
+  width: 200px;
+  height: 20px;
+  background-color: #fff;
+  position: absolute;
+  transform: translateX(-110%) rotate(45deg);
+  transition: 0.4s;
+}
+.submit-btn:hover::before
+{
+  transform: translateX(100%) rotate(45deg);
+}
+#login
+{
+  left: 50px;
+}
+#register
+{
+  left: 450px;
+}
+.submit-btn
+{
+  color: white;
+}
+.b-input-check
+{
+  width: 30px;
+  margin: 10px 5px;
+}
+.check-text
+{
+  color: #fff;
+  font-size: 14px;
+}
+.check-text a
+{
+  color: #00ffff;
+  font-size: 14px;
+}
+.check-text a:hover
+{
+  text-decoration: underline;
+}
+.check-text2
+{
+  margin-top: 30px;
+  width: 280px;
+  text-align: center;
+}
+.check-text2 a
+{
+  color: #00ffff;
+  font-size: 14px;
+}
+.check-text2 a:hover
+{
+  text-decoration: underline;
+}

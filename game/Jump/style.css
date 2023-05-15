@@ -1,0 +1,80 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+.border
+{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    border: 2px solid gray;
+    animation: animate 6s linear infinite;
+}
+.game
+{
+    width: 450px;
+    height: 400px;
+    box-shadow: 1px 2px 6px lightgray, inset 1px 1px 6px lightgray;  
+    margin: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+@keyframes animate
+{
+    0%{ border-color: lightgray;box-shadow: inset 1px 1px 6px lightgray; }
+    25%{ border-color: blue;box-shadow: inset 1px 1px 6px blue; }
+    50%{ border-color: red;box-shadow: inset 1px 1px 6px red; }
+    75%{ border-color: blue;box-shadow: inset 1px 1px 6px blue; }
+    100%{ border-color: gray;box-shadow: inset 1px 1px 6px gray; }
+}
+#character
+{
+    width: 20px;
+    height: 50px;
+    background-color: red;
+    position:relative;
+    top: 150px;
+}
+.animate
+{
+    animation: jump 0.3s linear;
+}
+@keyframes jump
+{
+    0%{top: 150px;}
+    30%{top: 100px;}
+    70%{top: 100px;}
+    100%{top: 150px;}
+}
+
+#block
+{
+    background-color: blue;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 130px;
+    left: 500px;
+    animation: block 1.3s infinite linear;
+}
+@keyframes block
+{
+    0%{left: 500px}
+    100%{left: -20px}
+}
+p
+{
+    background-color: black;
+    color: white;
+    width: 100px;
+    float: right;
+    border-radius: 0 0 0 30px;
+    padding: 10px;
+    padding-right: 20px;
+    text-align: right;
+    font-size: 25px;
+}

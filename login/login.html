@@ -1,0 +1,87 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Sign In & Sign Up</title>
+  <link rel="icon" type="image/ico" href="../logo/logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- loading part -->
+  <div class="pulse1">
+    <div class="pulse2">
+      <span style="--i:1;"></span>
+      <span style="--i:2;"></span>
+      <span style="--i:3;"></span>
+      <span style="--i:4;"></span>
+      <span style="--i:5;"></span>
+      <div class="game">
+        <img src="img1.png" width="150">
+      </div>
+    </div>
+  </div>
+  <!-- end of loading part -->
+  <!-- form part -->
+  <div class="hero">
+    <div class="form-box">
+      <div class="button-box">
+        <div id="btn"></div>
+        <button type="button" class="toggle-btn" onclick="login()">Login</button>
+        <button type="button" class="toggle-btn" onclick="register()" style="padding-left: 45px;">Register</button>
+      </div>
+      <div class="container">
+        <!-- login form -->
+        <form class="input-group" id="login" action="signin.php" method="POST" style="padding-top: 50px;">
+          <div class="group">
+            <input class="b-input" type="email" name="signinemail" required title="Enter your Email Id">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Email Id</label>
+          </div>
+          <div class="group">      
+            <input class="b-input" type="password" name="signinpassword" required title="Enter your password">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Password</label>
+          </div>
+          <button type="submit" name="signinsubmit" class="submit-btn" style="margin-top: 100px;">Log in</button>
+          <div class="check-text2"><a href="../forget-password/forgot.html">Forget Password?.</a></div>
+        </form>
+        <!-- end of login form -->
+      </div>
+        <!-- registration form -->
+        <form class="input-group" id="register" action="signup.php" method="POST" style="padding-top: 19px;width: 280px;">
+          <div class="group">      
+            <input class="b-input" type="text" name="signupname" required title="Enter your name">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Name</label>
+          </div>
+          <div class="group">
+            <input class="b-input" type="email" name="signupemail" required title="Enter your email id">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Email</label>
+          </div>
+          <div class="group">
+            <input class="b-input" type="password" name="signuppassword" required title="Enter your password">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Password</label>
+          </div>
+          <div class="group">
+            <input class="b-input" type="password" name="signupcpassword" required title="Re-enter your password" style="margin-bottom: -30px;">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Confirm Password</label>
+          </div>
+          <input class="b-input-check" type="checkbox" id="checkme" checked><span class="check-text">I've read and agreed to the <a href="#"> Terms and Conditions.</a></span>
+          <button type="submit" name="signupsubmit" class="submit-btn" id="sendNewSms" style="margin-top: 15px;">Register</button> 
+        </form>
+        <!-- end of registration form -->
+    </div>
+  </div>
+  <!-- script tag -->
+  <script type="text/javascript" src="login_js.js"></script>
+</body>
+</html>
